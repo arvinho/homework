@@ -51,7 +51,7 @@ func main() {
 
 	//捕获到os.Signal后的退出
 	group.Go(func() error {
-		quit := make(chan os.Signal, 0)
+		quit := make(chan os.Signal, 1)
 		signal.Notify(quit, syscall.SIGINT, syscall.SIGEMT)
 
 		select {
